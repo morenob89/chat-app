@@ -2,7 +2,9 @@
 
 Real-time chat application using React, SCSS, and Scaledrone. Developed as part of Algebra's Frontend developer course.
 
-Link to live demo.
+Check out the live version of the application on Netlify:
+
+https://mbalajic-chat-app.netlify.app/
 
 ---
 
