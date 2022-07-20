@@ -29,7 +29,7 @@ export function ChatPage() {
 
   useEffect(() => {
     if (drone !== null) return;
-    setDrone(new window.Scaledrone('aC1vqpO2aEavkoXU'));
+    setDrone(new window.Scaledrone('dBIV1z4GVivgxfIh'));
   }, [drone, setDrone]);
 
   useEffect(() => {

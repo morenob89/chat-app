@@ -1,6 +1,6 @@
 # algebra-chat-app
 
-Real-time chat application using React, SCSS, and Scaledrone. Developed as part of Algebra's Frontend developer course.
+Real-time chat application using JavaScript, React, SCSS, and Scaledrone. Developed as part of Algebra's Frontend developer course.
 
 Check out the live version of the application on Netlify:
 
