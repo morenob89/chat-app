@@ -12,7 +12,6 @@ export function ChatPage(props) {
   useEffect(() => {
     let value = messageList.current;
     if(value) {
-      console.log(value.scrollHeight);
       value.scrollTop = value.scrollHeight;
     }
   },[props.messages])

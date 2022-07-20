@@ -45,8 +45,7 @@ export function ChatPage() {
     });
   
     room.on('message', message => {
-      console.log('Message received', message);
-      
+
 
       setState((state) => [
         ...state,
