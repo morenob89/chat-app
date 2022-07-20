@@ -2,8 +2,21 @@ import "./ChatPage.styles.scss";
 
 import { Message } from "../../components/Message";
 import { MessageForm } from "../../components/MessageForm";
+import { useEffect, useRef } from "react";
 
 export function ChatPage(props) {
+
+  // element.scrollTop = element
+  let messageList = useRef();
+
+  useEffect(() => {
+    let value = messageList.current;
+    if(value) {
+      console.log(value.scrollHeight);
+      value.scrollTop = value.scrollHeight;
+    }
+  },[props.messages])
+
   if (props.error !== null) {
     return (
       <div className="chat-page">Failed to connect to chat room.</div>
@@ -32,7 +45,7 @@ export function ChatPage(props) {
   return (
     <div className="chat-page">
       <div className="chat-page__title">Chat with friends</div>
-      <div className="chat-page__message-list">
+      <div ref={messageList} className="chat-page__message-list">
         {messageItems}
       </div>
       <div className="chat-page__form">

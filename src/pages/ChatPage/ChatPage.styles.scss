@@ -19,6 +19,7 @@
   &__message-list {
     flex: 1 1 auto;
     overflow-y: auto;
+    scroll-behavior: smooth;
   }
 
   &__message-list-item {
