@@ -10,7 +10,7 @@ export function MessageText(props) {
         time={props.time}
       />
       <div className="message-text__content">
-        {props.children}
+          {props.children}
       </div>
     </div>
   );

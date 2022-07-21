@@ -10,10 +10,12 @@
     @include type($font-weight: 700, $line-height: 24 / 16);
     margin-right: 8px;
     display: inline;
+    color: rgba(255,255,255, 0.6);
   }
 
   &__time {
     @include type($font-size: 1.2rem, $line-height: 18 / 12);
     display: inline;
+    color: rgba(255,255,255, 0.6);
   }
 }

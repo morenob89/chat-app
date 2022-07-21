@@ -6,7 +6,7 @@
   justify-content: center;
   align-items: center;
   height: 40px;
-  background-color: $color-theme;
+  background-color: rgba(0,0,0, 0.8);
 }
 
 .button.button--text {
@@ -14,15 +14,29 @@
   @include shape('rounded');
   width: 100%;
   padding: 0 16px;
-  color: $color-theme-inverted;
+  color: rgba(255,255,255, 0.8);
   text-align: center;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  transition: 0.3s ease;
+  cursor: pointer;
+  &:hover {
+    color: rgba(255,255,255, 1);
+  }
 }
 
 .button.button--icon {
   @include shape('round');
   width: 40px;
-
+  cursor: pointer;
+  background-color: rgb(33, 106, 63);
   path {
-    fill: $color-theme-inverted;
+    transition: 0.3s ease;
+    fill: rgba(255,255,255, 0.8);
+  }
+  &:hover {
+    path {
+      fill: rgba(255,255,255, 1);
+    }
   }
 }

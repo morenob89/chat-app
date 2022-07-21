@@ -21,12 +21,11 @@ export function ChatPage() {
 
     if (drone !== null) {
       drone.publish({
-        room: 'chat',
+        room: 'observable-chat',
         message: message
       });
     }
   }
-
   useEffect(() => {
     if (drone !== null) return;
     setDrone(new window.Scaledrone('dBIV1z4GVivgxfIh'));
@@ -35,17 +34,25 @@ export function ChatPage() {
   useEffect(() => {
     if (drone === null) return;
 
-    const room = drone.subscribe('chat');
+    const room = drone.subscribe('observable-chat');
 
     room.on('open', error => {
       if (error) {
         return setError(error);
       }
       setJoinedRoom(true);
+      console.log('connected to the room')
+    });
+
+    room.on('members', function(members) {
+      let memberList = members;
+      console.log(memberList);
     });
   
     room.on('message', message => {
-
+      const member = message.member;
+      console.log(message);
+      console.log(member);
 
       setState((state) => [
         ...state,

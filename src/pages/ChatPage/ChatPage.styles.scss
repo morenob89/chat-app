@@ -1,6 +1,7 @@
 @import "../../styles/index";
 
 .chat-page {
+  position: relative;
   display: flex;
   flex-flow: column nowrap;
   justify-content: stretch;
@@ -11,25 +12,33 @@
   max-width: 400px;
   width: calc(100% - #{2 * $size-wrapper-margin});
   margin: 10px auto;
-  background-color: #fafafa;
-  padding: 15px;
+  background-color: rgba(0,0,0, 0.3);
   border-radius: 25px;
+  overflow: hidden;
 
   &__title {
     @include type($font-size: 2.4rem, $font-weight: 700);
     flex: 0 0 auto;
-    margin: 24px 0;
     text-align: center;
+    padding: 15px 0;
+    background-color:rgba(0,0,0, 0.8);
+    color: rgba(255,255,255, 0.8);
   }
 
   &__message-list {
     flex: 1 1 auto;
     overflow-y: auto;
     scroll-behavior: smooth;
+    padding: 20px 5px 5px 5px;
   }
 
   &__message-list-item {
     margin-bottom: 8px;
+    display: flex;
+    justify-content: flex-start;
+    &.find-me {
+      justify-content: flex-end;
+    }
 
     &:last-child {
       margin-bottom: 0;
@@ -38,6 +47,7 @@
 
   &__form {
     flex: 0 0 auto;
-    margin: 16px 0;
+    padding: 15px 0;
+    background-color:rgba(0,0,0, 0.8);
   }
 }

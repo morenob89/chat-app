@@ -3,8 +3,13 @@
   flex-flow: row nowrap;
   justify-content: stretch;
   align-items: center;
+  background-color: rgba(0,0,0, 0.2);
+  width: fit-content;
+  padding: 5px;
+  border-radius: 15px;
   &.my-messages {
     flex-flow: row-reverse nowrap;
+    background-color: rgba(255,255,255, 0.2);
     .message__avatar {
       margin-right: 0;
       margin-left: 8px;
@@ -12,15 +17,21 @@
     .message__text {
       flex: initial;
       .message-text {
+        text-align: right;
         .message-metadata {
           flex-flow: row-reverse nowrap;
           .message-metadata__display-name {
             margin-right: 0;
             margin-left: 8px;
+            color: rgba(255,255,255, 0.8);
+          }
+          .message-metadata__time {
+            color: rgba(255,255,255, 0.8);
           }
         }
         .message-text__content {
           text-align: right;
+          color: rgba(255,255,255, 0.8);
         }
       }
     }

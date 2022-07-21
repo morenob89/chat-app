@@ -3,10 +3,12 @@ import "./ChatPage.styles.scss";
 import { Message } from "../../components/Message";
 import { MessageForm } from "../../components/MessageForm";
 import { useEffect, useRef } from "react";
+import { useUser } from "../../contexts/UserContext";
 
 export function ChatPage(props) {
+  console.log(props);
+  const findMe = useUser();
 
-  // element.scrollTop = element
   let messageList = useRef();
 
   useEffect(() => {
@@ -29,7 +31,7 @@ export function ChatPage(props) {
   }
 
   const messageItems = props.messages.map((message) => (
-    <div key={message.id} className="chat-page__message-list-item">
+    <div key={message.id} className={`chat-page__message-list-item ${findMe.user.displayName === message.user.displayName ? 'find-me' : ''}`} >
       <Message
         avatarBackgroundColor={message.user.avatarBackgroundColor}
         avatarText={message.user.avatarText}
