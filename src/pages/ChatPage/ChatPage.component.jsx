@@ -10,14 +10,14 @@ import { UserList } from "../../components/UserList/";
 export function ChatPage(props) {
 
   const [animationTimer, setAnimationTimer] = useState(false);
-
+  
   useEffect(() => {
     setAnimationTimer(true);
     setTimeout(() => {
       setAnimationTimer(false);
     }, 2000);
   },[props.notification])
-
+  
   const findMe = useUser();
 
   let messageList = useRef();
@@ -48,7 +48,8 @@ export function ChatPage(props) {
   }
 
   const messageItems = props.messages.map((message) => (
-    <div key={message.id} className={`chat-page__message-list-item ${findMe.user.displayName === message.user.displayName ? 'find-me' : ''}`} >
+    
+    <div key={message.id} className={`chat-page__message-list-item ${findMe.user.avatarBackgroundColor === message.user.avatarBackgroundColor ? 'find-me' : ''}`} >
       <Message
         avatarBackgroundColor={message.user.avatarBackgroundColor}
         avatarText={message.user.avatarText}

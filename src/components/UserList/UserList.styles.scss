@@ -36,6 +36,11 @@
         align-items: center;
         gap: 10px;
         margin-bottom: 5px;
+        &.active {
+            .user-list__item-name {
+                color: rgba(255,255,255, 0.9);
+            }
+        }
     }
     &__item-name {
         @include type($font-weight: 700, $line-height: math.div(24, 16));

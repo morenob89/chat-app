@@ -6,11 +6,11 @@ import { useUser } from "../../contexts/UserContext";
 
 export function Message(props) {
 
-  const user = useUser();
+  const findMe = useUser();
 
 
   return (
-    <div className={`message ${user.user.displayName === props.displayName ? 'my-messages' : ''}`}>
+    <div className={`message ${findMe.user.avatarBackgroundColor === props.avatarBackgroundColor ? 'my-messages' : ''}`}>
       <div className="message__avatar">
         <Avatar
           backgroundColor={props.avatarBackgroundColor}

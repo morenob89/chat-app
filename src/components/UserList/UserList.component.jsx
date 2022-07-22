@@ -1,15 +1,18 @@
-import { Avatar } from "../Avatar";
 import "./UserList.styles.scss";
+
+import { Avatar } from "../Avatar";
 import { useState } from "react";
+import { useUser } from "../../contexts/UserContext";
 
 
 export function UserList(props) {
+    const findMe = useUser();
 
     const [active, setActive] = useState(false)
 
     let userList = props.memberList.map((member) => {
         return (
-            <li key={member.id} className="user-list__item"><Avatar text={member.clientData.avatarText} backgroundColor={member.clientData.avatarColor}/> <span className="user-list__item-name">{member.clientData.displayName}</span></li>
+            <li key={member.id} className={`user-list__item ${findMe.user.avatarBackgroundColor === member.clientData.avatarColor ? 'active' : ''}`}><Avatar text={member.clientData.avatarText} backgroundColor={member.clientData.avatarColor}/> <span className="user-list__item-name">{member.clientData.displayName}</span></li>
         )
     })
 
