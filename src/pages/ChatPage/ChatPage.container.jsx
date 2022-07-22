@@ -29,12 +29,6 @@ export function ChatPage() {
     }
   }
 
-  useEffect (() => {
-
-    console.log(notification);
-
-  },[notification])
-
   useEffect(() => {
     if (drone !== null) return;
     setDrone(new window.Scaledrone('dBIV1z4GVivgxfIh', {
@@ -57,7 +51,6 @@ export function ChatPage() {
       }
       setJoinedRoom(true);
       setNotification(`You are connected to the room!`);
-      console.log('connected to the room');
     });
 
     room.on('members', function(members) {
@@ -66,7 +59,6 @@ export function ChatPage() {
 
     room.on('member_join', function(member) {
       setNotification(`${member.clientData.displayName} has joined the room!`);
-      console.log(`${member.clientData.displayName} has joined the room`);
       setMemberList((state) => [
         ...state, member
       ]);
@@ -74,7 +66,6 @@ export function ChatPage() {
     
     room.on('member_leave', function(member) {
       setNotification(`${member.clientData.displayName} has left the room!`);
-      console.log(`${member.clientData.displayName} has left the room!`);
       
       setMemberList((state) => state.filter((person) => {
         return person.id !== member.id;

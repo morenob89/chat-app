@@ -16,6 +16,7 @@ export function MessageForm(props) {
           name="message"
           onChange={props.onChange}
           value={props.formState.message}
+          placeholder="Type a message..."
           required
         />
       </div>

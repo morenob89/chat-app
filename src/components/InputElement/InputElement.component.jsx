@@ -9,6 +9,7 @@ export function InputElement(props) {
       onChange={props.onChange}
       value={props.value}
       required={props.required}
+      placeholder={props.placeholder}
     />
   );
 }

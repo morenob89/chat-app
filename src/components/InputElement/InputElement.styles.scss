@@ -7,4 +7,7 @@
   width: 100%;
   padding: 0 16px;
   color: rgba(255,255,255, 0.8);
+  &::placeholder {
+    color: rgba(255,255,255, 0.5);
+  }
 }
