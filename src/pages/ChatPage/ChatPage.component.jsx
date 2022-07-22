@@ -13,10 +13,8 @@ export function ChatPage(props) {
 
   useEffect(() => {
     setAnimationTimer(true);
-    console.log('animation timer true');
     setTimeout(() => {
       setAnimationTimer(false);
-      console.log('animation timer false');
     }, 2000);
   },[props.notification])
 
