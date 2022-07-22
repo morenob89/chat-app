@@ -26,7 +26,13 @@ export function ChatPage(props) {
 
   if (!props.joinedRoom) {
     return (
-      <div className="chat-page">Joining room, please wait...</div>
+      <div className="chat-page">
+
+        <div className="chat-page__loading">
+          <div className="chat-page__loading-text">Loading...</div> 
+        </div>
+
+      </div>
     );
   }
 

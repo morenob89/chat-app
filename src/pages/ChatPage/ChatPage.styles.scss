@@ -14,6 +14,23 @@
   margin: 10px auto;
   background-color: rgba(0,0,0, 0.3);
   border-radius: 25px;
+  &__loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  &__loading-text {
+    @include type($font-size: 2.4rem, $font-weight: 700);
+    color: rgba(255,255,255, 0.8);
+    opacity: 0;
+    animation: opacityIn 3s forwards;
+    @keyframes opacityIn {
+      to {
+        opacity: 0.8;
+      }
+    }
+  }
   &__title {
     @include type($font-size: 2.4rem, $font-weight: 700);
     flex: 0 0 auto;
