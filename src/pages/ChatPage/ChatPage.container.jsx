@@ -13,6 +13,7 @@ export function ChatPage() {
   const [error, setError] = useState(null);
   const [joinedRoom, setJoinedRoom] = useState(false);
   const [memberList, setMemberList] = useState({});
+  const [notification, setNotification] = useState('');
 
   const sendMessage = (formState) => {
     const message = new MessageModel({
@@ -28,7 +29,11 @@ export function ChatPage() {
     }
   }
 
+  useEffect (() => {
 
+    console.log(notification);
+
+  },[notification])
 
   useEffect(() => {
     if (drone !== null) return;
@@ -51,7 +56,8 @@ export function ChatPage() {
         return setError(error);
       }
       setJoinedRoom(true);
-      console.log('connected to the room')
+      setNotification(`You are connected to the room!`);
+      console.log('connected to the room');
     });
 
     room.on('members', function(members) {
@@ -59,6 +65,7 @@ export function ChatPage() {
     });
 
     room.on('member_join', function(member) {
+      setNotification(`${member.clientData.displayName} has joined the room!`);
       console.log(`${member.clientData.displayName} has joined the room`);
       setMemberList((state) => [
         ...state, member
@@ -66,7 +73,8 @@ export function ChatPage() {
     });
     
     room.on('member_leave', function(member) {
-      console.log(`${member.clientData.displayName} has left the room`);
+      setNotification(`${member.clientData.displayName} has left the room!`);
+      console.log(`${member.clientData.displayName} has left the room!`);
       
       setMemberList((state) => state.filter((person) => {
         return person.id !== member.id;
@@ -89,6 +97,7 @@ export function ChatPage() {
       error={error}
       joinedRoom={joinedRoom}
       memberList={memberList}
+      notification={notification}
     />
   );
 }

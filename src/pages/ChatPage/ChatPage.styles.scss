@@ -43,10 +43,42 @@
   }
 
   &__message-list {
+    position: relative;
     flex: 1 1 auto;
     overflow-y: auto;
     scroll-behavior: smooth;
     padding: 20px 5px 5px 5px;
+  }
+  &__message-list-notification {
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px;
+    opacity: 0;
+    border-radius: 15px;
+    @include type($font-size: 1rem, $font-weight: 700);
+    background-color:rgba(0,0,0, 0.8);
+    color: rgba(255,255,255, 0.8);
+    pointer-events: none;
+    &.active {
+      animation: notifiAni 2s forwards;
+    }
+    @keyframes notifiAni {
+      0% {
+        opacity: 0;
+      }
+      25% {
+        opacity: 1;
+      }
+      75% {
+        opacity: 1;
+      }
+      0% {
+        opacity: 0;
+      }
+    }
   }
 
   &__message-list-item {

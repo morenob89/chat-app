@@ -2,11 +2,24 @@ import "./ChatPage.styles.scss";
 
 import { Message } from "../../components/Message";
 import { MessageForm } from "../../components/MessageForm";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useUser } from "../../contexts/UserContext";
 import { UserList } from "../../components/UserList/";
 
+
 export function ChatPage(props) {
+
+  const [animationTimer, setAnimationTimer] = useState(false);
+
+  useEffect(() => {
+    setAnimationTimer(true);
+    console.log('animation timer true');
+    setTimeout(() => {
+      setAnimationTimer(false);
+      console.log('animation timer false');
+    }, 2000);
+  },[props.notification])
+
   const findMe = useUser();
 
   let messageList = useRef();
@@ -54,6 +67,7 @@ export function ChatPage(props) {
       <UserList memberList={props.memberList}/>
       <div className="chat-page__title">Chat with friends</div>
       <div ref={messageList} className="chat-page__message-list">
+        <span className={`chat-page__message-list-notification ${animationTimer === true ? 'active' : ''}`}>{props.notification}</span>
         {messageItems}
       </div>
       <div className="chat-page__form">
