@@ -4,7 +4,6 @@ import "./UserList.styles.scss";
 
 export function UserList(props) {
         let userList = props.memberList.map((member) => {
-            console.log(member);
             return (
                 <li key={member.id} className="user-list__item"><Avatar text={member.clientData.avatarText} backgroundColor={member.clientData.avatarColor}/> <span className="user-list__item-name">{member.clientData.displayName}</span></li>
             )

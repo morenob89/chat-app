@@ -7,7 +7,6 @@ import { useUser } from "../../contexts/UserContext";
 import { UserList } from "../../components/UserList/";
 
 export function ChatPage(props) {
-  console.log(props.memberList);
   const findMe = useUser();
 
   let messageList = useRef();

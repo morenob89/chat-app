@@ -59,11 +59,18 @@ export function ChatPage() {
     });
 
     room.on('member_join', function(member) {
-      console.log('member join');
-      console.log(member);
+      console.log(`${member.clientData.displayName} has joined the room`);
       setMemberList((state) => [
         ...state, member
       ]);
+    });
+    
+    room.on('member_leave', function(member) {
+      console.log(`${member.clientData.displayName} has left the room`);
+      
+      setMemberList((state) => state.filter((person) => {
+        return person.id !== member.id;
+      }));
     });
   
     room.on('message', message => {
