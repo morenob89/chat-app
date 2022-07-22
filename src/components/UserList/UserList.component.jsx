@@ -14,11 +14,9 @@ export function UserList(props) {
     })
 
     const handleClick = () => {
-        console.log('click');
         setActive(!active);
-        
     }
-    console.log(active);
+
 
 
     return (
