@@ -7,11 +7,12 @@ import { useEffect } from "react";
 import { ChatPage as Component } from "./ChatPage.component";
 
 export function ChatPage() {
-  const { user } = useUser();
+  const {user} = useUser();
   const [state, setState] = useState([]);
   const [drone, setDrone] = useState(null);
   const [error, setError] = useState(null);
   const [joinedRoom, setJoinedRoom] = useState(false);
+  const [memberList, setMemberList] = useState({});
 
   const sendMessage = (formState) => {
     const message = new MessageModel({
@@ -28,8 +29,14 @@ export function ChatPage() {
   }
   useEffect(() => {
     if (drone !== null) return;
-    setDrone(new window.Scaledrone('dBIV1z4GVivgxfIh'));
-  }, [drone, setDrone]);
+    setDrone(new window.Scaledrone('dBIV1z4GVivgxfIh', {
+      data: {
+        displayName: user.displayName,
+        avatarColor: user.avatarBackgroundColor,
+        avatarText: user.avatarText,
+      }
+    }));
+  }, [drone, setDrone, user]);
 
   useEffect(() => {
     if (drone === null) return;
@@ -45,14 +52,10 @@ export function ChatPage() {
     });
 
     room.on('members', function(members) {
-      let memberList = members;
-      console.log(memberList);
+      setMemberList(members);
     });
   
     room.on('message', message => {
-      const member = message.member;
-      console.log(message);
-      console.log(member);
 
       setState((state) => [
         ...state,
@@ -67,6 +70,7 @@ export function ChatPage() {
       onSendMessage={sendMessage}
       error={error}
       joinedRoom={joinedRoom}
+      memberList={memberList}
     />
   );
 }

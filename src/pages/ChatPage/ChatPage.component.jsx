@@ -4,9 +4,10 @@ import { Message } from "../../components/Message";
 import { MessageForm } from "../../components/MessageForm";
 import { useEffect, useRef } from "react";
 import { useUser } from "../../contexts/UserContext";
+import { UserList } from "../../components/UserList/";
 
 export function ChatPage(props) {
-  console.log(props);
+  console.log(props.memberList);
   const findMe = useUser();
 
   let messageList = useRef();
@@ -45,6 +46,7 @@ export function ChatPage(props) {
 
   return (
     <div className="chat-page">
+      <UserList memberList={props.memberList}/>
       <div className="chat-page__title">Chat with friends</div>
       <div ref={messageList} className="chat-page__message-list">
         {messageItems}

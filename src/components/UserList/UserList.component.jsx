@@ -1,0 +1,25 @@
+import { Avatar } from "../Avatar";
+import "./UserList.styles.scss";
+
+
+export function UserList(props) {
+
+    const userList = props.memberList.map((member) => {
+
+        console.log(member);
+        return (
+            <li key={member.id} className="user-list__item"><Avatar text={member.clientData.avatarText} backgroundColor={member.clientData.avatarColor}/> <span className="user-list__item-name">{member.clientData.displayName}</span></li>
+        )
+    })
+
+    return (
+        <>
+            <div className="user-list">
+                <span className="user-list__title">User List</span>
+                <ul className="user-list__list">
+                    {userList}
+                </ul>
+            </div>
+        </>
+    )
+}

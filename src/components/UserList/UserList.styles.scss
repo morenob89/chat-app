@@ -1,0 +1,38 @@
+@import "../../styles/index";
+
+.user-list {
+    position: absolute;
+    top: 54px;
+    left: 0;
+    transform: translateX(-100%);
+    max-width: 250px;
+    width: 100%;
+    background-color:rgba(0,0,0, 0.3);
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    min-height: 300px;
+    &__title {
+        display: block;
+        background-color:rgba(0,0,0, 0.8);
+        @include type($font-size: 1.7rem, $font-weight: 700);
+        color: rgba(255,255,255, 0.8);
+        border-top-left-radius: 25px;
+        padding: 15px 0;
+        text-align: center;
+    }
+    &__list {
+        padding: 5px;
+    }
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 5px;
+    }
+    &__item-name {
+        @include type($font-weight: 700, $line-height: 24 / 16);
+        margin-right: 8px;
+        display: inline;
+        color: rgba(255,255,255, 0.6);
+    }
+}

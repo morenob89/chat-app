@@ -14,13 +14,13 @@
   margin: 10px auto;
   background-color: rgba(0,0,0, 0.3);
   border-radius: 25px;
-  overflow: hidden;
-
   &__title {
     @include type($font-size: 2.4rem, $font-weight: 700);
     flex: 0 0 auto;
     text-align: center;
     padding: 15px 0;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
     background-color:rgba(0,0,0, 0.8);
     color: rgba(255,255,255, 0.8);
   }
@@ -49,5 +49,7 @@
     flex: 0 0 auto;
     padding: 15px 0;
     background-color:rgba(0,0,0, 0.8);
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
   }
 }
