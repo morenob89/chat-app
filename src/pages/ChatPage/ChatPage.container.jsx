@@ -27,6 +27,9 @@ export function ChatPage() {
       });
     }
   }
+
+
+
   useEffect(() => {
     if (drone !== null) return;
     setDrone(new window.Scaledrone('dBIV1z4GVivgxfIh', {
@@ -53,6 +56,14 @@ export function ChatPage() {
 
     room.on('members', function(members) {
       setMemberList(members);
+    });
+
+    room.on('member_join', function(member) {
+      console.log('member join');
+      console.log(member);
+      setMemberList((state) => [
+        ...state, member
+      ]);
     });
   
     room.on('message', message => {

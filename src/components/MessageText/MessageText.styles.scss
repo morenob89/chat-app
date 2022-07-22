@@ -1,8 +1,9 @@
+@use 'sass:math';
 @import "../../styles/index";
 
 .message-text {
   &__content {
-    @include type($line-height: 24 / 16);
+    @include type($line-height: math.div(24, 16));
     display: block;
     width: 100%;
     color: rgba(255,255,255, 0.6);
