@@ -40,10 +40,12 @@ Build the project for production.
 
 ## Roadmap
 
-- [ ] "Typing..." indicator
+- [x] Styling chat
 - [x] Left and right messages
-- [x] Added notification system for entering chat / user joining chat / user leaving chat
-- [ ] Adding animation for new messages
-- [x] Adding user list
-- [x] User list updating on user entering/leaving chat
+- [x] Autoscroll to new message
+- [x] Notification system for entering chat / user joining chat / user leaving chat
+- [ ] Animation for new messages
+- [ ] "Typing..." indicator
+- [x] User list
+- [x] User list functionality for updating on user entering/leaving chat
 - [x] Adding responsive behavior for chat and user list
