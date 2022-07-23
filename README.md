@@ -19,14 +19,14 @@ https://mbalajic-chat-app.netlify.app/
 **First steps**
 
 1. Clone this repository
-2. Run 'npm install'
-3. Run 'npm start'
+2. Run `npm install`
+3. Run `npm start`
 
-### 'npm run start'
+### `npm run start`
 
 Start the development environment.
 
-### 'npm run build'
+### `npm run build`
 
 Build the project for production.
 
@@ -41,5 +41,9 @@ Build the project for production.
 ## Roadmap
 
 - [ ] "Typing..." indicator
-- [ ] Left and right messages
-- [ ] My color always losos
+- [x] Left and right messages
+- [x] Added notification system for entering chat / user joining chat / user leaving chat
+- [ ] Adding animation for new messages
+- [x] Adding user list
+- [x] User list updating on user entering/leaving chat
+- [x] Adding responsive behavior for chat and user list
