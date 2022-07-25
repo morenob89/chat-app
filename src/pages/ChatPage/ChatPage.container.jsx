@@ -73,11 +73,12 @@ export function ChatPage() {
     });
   
     room.on('message', message => {
-
+      console.log(message);
       setState((state) => [
         ...state,
         MessageModel.fromObject({ ...message.data, id: message.id })
       ]);
+      
     });
   }, [drone]);
 
